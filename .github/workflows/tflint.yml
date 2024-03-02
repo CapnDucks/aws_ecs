@@ -1,7 +1,7 @@
 name: tf-lint
 on:
   push:
-    branches: [ main ]
+    branches: main
   pull_request:
     branches:
       - main
@@ -10,7 +10,7 @@ on:
 
 jobs:
   tflint:
-    runs-on: [ ubuntu-latest ]
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -28,4 +28,4 @@ jobs:
       run: tflint --init
 
     - name: Run TFLint
-      run: tflint -f compact
+      run: tflint -f compact --fix
