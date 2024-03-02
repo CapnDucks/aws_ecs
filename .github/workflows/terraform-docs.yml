@@ -20,7 +20,7 @@ jobs:
       uses: terraform-docs/gh-actions@v1
       with:
         working-dir: .
-        output-file: documentation.md
+        output-file: readme.md
         output-method: inject
         git-push: "true"
         template: "<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->\n{{ .Content }}\n<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->"
