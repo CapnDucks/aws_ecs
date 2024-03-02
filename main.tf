@@ -1,5 +1,9 @@
+locals {
+  name = lower(replace(var.name," ","-"))
+}
+
 resource "aws_ecs_cluster" "this" {
-  name = var.name
+  name = local.name
 
   setting {
     name  = "containerInsights"
