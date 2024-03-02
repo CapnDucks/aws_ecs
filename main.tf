@@ -1,6 +1,11 @@
 resource "aws_ecs_cluster" "this" {
   name = var.name
 
+  setting {
+    name  = "containerInsights"
+    value = var.container_insights
+  }
+
   configuration {
     execute_command_configuration {
       #kms_key_id = module.kms.arn
@@ -8,7 +13,7 @@ resource "aws_ecs_cluster" "this" {
       logging = "OVERRIDE"
       log_configuration {
         cloud_watch_encryption_enabled = true
-        cloud_watch_log_group_name     = "/aws/ecs/infrastructure"
+        cloud_watch_log_group_name     = "/aws/ecs/cluster/${var.name}"
       }
     }
   }
