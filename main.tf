@@ -37,3 +37,8 @@ resource "aws_ecs_cluster_capacity_providers" "this" {
     }
   }
 }
+
+resource "aws_ecs_account_setting_default" "this" {
+  name  = "taskLongArnFormat"
+  value = "enabled"
+}

@@ -23,8 +23,8 @@ variable "default_capacity_provider_strategy" {
 
 variable "container_insights" {
   description = "Controls if ECS Cluster has container insights enabled"
-  type        = bool
-  default     = true
+  type        = string
+  default     = "enabled"
 }
 
 variable "tags" {
