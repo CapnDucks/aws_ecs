@@ -28,4 +28,4 @@ jobs:
       run: tflint --init
 
     - name: Run TFLint
-      run: tflint -f compact --fix
+      run: tflint -f compact
