@@ -35,5 +35,5 @@ variable "tags" {
 
 variable "kms_key_alias" {
   description = "Alias of the KMS key"
-  type = string
+  type        = string
 }

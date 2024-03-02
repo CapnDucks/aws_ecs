@@ -12,3 +12,7 @@ output "ecs_cluster_name" {
   description = "The name of the ECS cluster"
   value       = var.name
 }
+
+output "kms_key_arn" {
+  value = module.kms.kms_key["arn"]
+}
