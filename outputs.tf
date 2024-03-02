@@ -13,6 +13,6 @@ output "ecs_cluster_name" {
   value       = var.name
 }
 
-output "kms_key_arn" {
-  value = module.kms.kms_key["arn"]
-}
+#output "kms_key_arn" {
+#  value = module.kms.kms_key["arn"]
+#}
