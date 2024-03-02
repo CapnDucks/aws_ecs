@@ -16,7 +16,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kms"></a> [kms](#module\_kms) | ../kms | n/a |
+| <a name="module_kms"></a> [kms](#module\_kms) | git::https://github.com/CapnDucks/aws_kms | v1 |
 
 ## Resources
 
