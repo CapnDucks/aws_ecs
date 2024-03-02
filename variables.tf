@@ -3,12 +3,6 @@ variable "name" {
   type        = string
 }
 
-variable "cluster_name" {
-  default     = null
-  description = "Name to be used for the cluster"
-  type        = string
-}
-
 variable "capacity_providers" {
   description = "List of short names of one or more capacity providers to associate with the cluster. Valid values also include FARGATE and FARGATE_SPOT."
   type        = list(string)
@@ -23,8 +17,8 @@ variable "default_capacity_provider_strategy" {
 
 variable "container_insights" {
   description = "Controls if ECS Cluster has container insights enabled"
-  type        = bool
-  default     = false
+  type        = string
+  default     = "enabled"
 }
 
 variable "tags" {
@@ -34,6 +28,6 @@ variable "tags" {
 }
 
 variable "kms_key_alias" {
-  description = "Alias of the KMS key"
+  description = "KMS key alias."
   type        = string
 }

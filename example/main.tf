@@ -1,10 +1,8 @@
 module "ecs" {
   source = "../"
 
-  kms_key_alias      = "KMS-ALIAS"
-  name               = "ECS-NAME"
-  cluster_name       = "CLUSTER-NAME"
-  container_insights = true
+  name          = "My ECS Cluster"
+  kms_key_alias = "ecs-key-alias"
 
   tags = {
     Name = "ECS module example"

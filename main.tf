@@ -1,14 +1,23 @@
+locals {
+  name = lower(replace(var.name," ","-"))
+}
+
 resource "aws_ecs_cluster" "this" {
-  name = var.name
+  name = local.name
+
+  setting {
+    name  = "containerInsights"
+    value = var.container_insights
+  }
 
   configuration {
     execute_command_configuration {
-      #kms_key_id = module.kms.arn
+      kms_key_id = module.kms.kms_key["arn"]
 
       logging = "OVERRIDE"
       log_configuration {
         cloud_watch_encryption_enabled = true
-        cloud_watch_log_group_name     = "/aws/ecs/infrastructure"
+        cloud_watch_log_group_name     = "/aws/ecs/cluster/${var.name}"
       }
     }
   }
@@ -31,4 +40,9 @@ resource "aws_ecs_cluster_capacity_providers" "this" {
       base              = lookup(strategy.value, "base", null)
     }
   }
+}
+
+resource "aws_ecs_account_setting_default" "this" {
+  name  = "taskLongArnFormat"
+  value = "enabled"
 }
