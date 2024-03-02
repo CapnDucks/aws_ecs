@@ -3,12 +3,6 @@ variable "name" {
   type        = string
 }
 
-#variable "cluster_name" {
-#  default     = null
-#  description = "Name to be used for the cluster"
-#  type        = string
-#}
-
 variable "capacity_providers" {
   description = "List of short names of one or more capacity providers to associate with the cluster. Valid values also include FARGATE and FARGATE_SPOT."
   type        = list(string)
@@ -31,4 +25,9 @@ variable "tags" {
   description = "A map of tags to add to ECS Cluster"
   type        = map(string)
   default     = {}
+}
+
+variable "kms_key_alias" {
+  description = "KMS key alias."
+  type        = string
 }
